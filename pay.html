@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                color: white;
+                padding: 20px;
+                background-color: powderblue;
+            }
+            .container {
+                max-width: 500px;
+                margin: 50px auto;
+                padding: 25px;
+                background-color: #1e293b;
+                border-radius: 12px;
+            }
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            input, select {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                border: none;
+            }
+            button {
+                width: 100%;
+                padding: 12px;
+                background: orange;
+                border: none;
+                border-radius: 8px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .paymen-box {
+                margin-bottom: 15px;
+                padding: 15px;
+                background-color: #334155;
+                border-radius: 8px;
+            }
+            .note{
+                font-size: 13px;
+                color: #fbbf24;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Payment Page</h2>
+            <p>Thank you for booking with WIZTEC Sound System. Please proceed with your payment to confirm your booking.</p>
+            <form id="bookingForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="entry.685807923" required><br><br>
+                <label for="tele">Mobile:</label>
+                <input type="tele" id="tele" name="entry.673461113" required><br><br>
+                <!--Event date-->
+                <input type="date" name="entry.1858598529_year" required>
+                <!--Event type-->
+                <select name="entry.2131504503" required>
+                    <option value="">Select Event Type</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Party">Party</option>
+                    <option value="Church Program">Church Program</option>
+                    <option value="Outdoor Event">Outdoor Event</option>
+                    <option value="Other">Other</option>
+                </select>
+                <!--Package selection-->
+                <select name="entry.1105277827" required>
+                    <option value="">Select Package</option>
+                    <option value="Basic Package">Basic Package</option>
+                    <option value="Standard Package">Standard Package</option>
+                    <option value="Premium Package">Premium Package</option>
+                    <option value="DJ Booking">DJ Booking</option>
+                </select>
+                <!--Orange Money payment section-->
+                <div class="paymen-box">
+                    <strong>Orange Money Payment</strong><br>
+                    <p>After payment, enter your Orange Money Transaction ID below.</p>
+                </div>
+                <label for="transactionId">Transaction ID:</label>
+                <input type="text" id="transactionId" name="entry.11795339944" required><br><br>
+                <!--Submit button-->
+                <button type="submit">Submit Booking</button>
+            </form>
+        </div>
+    </body>
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name= document.getElementById('name').value;
+            const tele= document.getElementById('tele').value;
+            const transactionId= document.getElementById('transactionId').value;
+            const eventType= document.querySelector('select[name="entry.2131504503"]').value;
+            const packageType= document.querySelector('select[name="entry.1105277827"]').value;
+            const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfzgDIgtNzGH4yxKmSYhdwDU3PeSzt6TdWm-kZYhjt7volnMg/formResponse';
+            const formData = new FormData();
+            formData.append("entry.685807923", name);
+            formData.append("entry.673461113", tele);
+            formData.append("entry.11795339944", transactionId);
+            formData.append("entry.2131504503", eventType);
+            formData.append("entry.1105277827", packageType);
+            fetch(formURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            }).then(() => {
+                alert('Booking submitted successfully! We will contact you soon.');
+                document.getElementById('bookingForm').reset();
+            }).catch((error) => {
+                console.error('Error submitting booking:', error);
+                alert('There was an error submitting your booking. Please try again.');
+            }); 
+        });
+    </script>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>wiztec sound system</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "segoe UI", sans-serif;
+            }
+            body {
+                background-color: #f4f6f9;
+                color: #333;
+            }
+            nav {
+                background-color: #111;
+                color: white;
+                padding: 15px 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav a {
+                color: white;
+                text-decoration: none;
+                margin-left: 20px;
+                font-size: 14px;
+            }
+            .hero {
+                text-align: center;
+                padding: 80px 20px;
+                background-color: rgb(2, 2, 39);
+                color: white;
+            }
+            .hero h1 {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+            .hero p {
+                margin-bottom: 25px;
+            }
+            .hero button {
+                padding: 12px 25px;
+                margin: 5px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            .book-btn {
+                background-color: powderblue;
+                color: white;
+            }
+            .whatsapp-btn {
+                background-color: #25D366;
+                color: white;
+            }
+            .section {
+                padding: 60px 20px;
+                text-align: center;
+                background-color: powderblue;
+            }
+            h2 {
+                margin-bottom: 40px;
+                text-align: center;
+                color: rgb(5, 8, 165);
+            }
+            .Packages {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                max-width: 1100px;
+                margin: auto;
+            }
+            .card {
+                background-color: white;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                transition: 0.3s;
+            }
+            .card:hover {
+                transform: translateY(-5px);
+            }
+            .Price {
+                font-weight: bold;
+                color: #ff6600;
+                margin: 15px 0;
+                font-size: 22px;
+            }
+            .contact {
+                background: #111;
+                padding: 50px 20px;
+                color: white;
+            }
+            footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #222;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <h2>WELCOME TO WIZTEC SOUND SYSTEM</h2>
+            <div>
+                <a href="#packages">Packages</a>
+                <a href="#Contacts">Contacts</a>
+            </div>
+        </nav>
+        <section class="hero">
+            <h1>Professional PA System Rental</h1>
+            <p>Perfect for weddings, Parties, Church Programs and Outdoor Events</p>
+            <button class="book-btn" onclick="bookEvent()">Book Now</button>
+            <button class="whatsapp-btn" onclick="whatsappNow()">Whatsapp</button>
+        </section>
+        <section class="section" id="packages">
+            <h2>Our Packages</h2>
+            <div class="Packages">
+                <div class="card">
+                    <h3>Basic Packages</h3>
+                    <p>2 Speakers + Mixer + Microphone</p>
+                    <div class="Price">Starting from NLe 800</div>
+                    <p>Perfect for small indoor events</p>
+                </div>
+                <div class="card">
+                    <h3>Standard Package</h3>
+                    <p>4 spearkers + Mixer + Wireless Mics</p>
+                    <div class="Price">Starting from NLe 1,500</div>
+                    <p>Great for weddings and church programs</p>
+                </div>
+                <div class="card">
+                    <h3>Permium Package</h3>
+                    <p>Full PA + Subwoofers + DJ Setup</p>
+                    <div class="Price">Strating from NLe 3000</div>
+                    <p>Perfect forlarge outdoor events</p>
+                </div>
+                <div class="card">
+                    <h3>DJ Booking</h3>
+                    <p>Full DJ Setup with Professional Skill</p>
+                    <div class="Price">NLe 100 per hour</div>
+                    <p>Perfect for all events</p>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <h2>Contact WIZTEC PA System </h2>
+            <p>Phone: +23280957763</p>
+            <p>Email:@wiztecsound.com</p>
+        </section>
+        <footer>
+            &copy; 2024 WIZTEC SOUND SYSTEM. All rights reserved.
+        </footer>
+        <script>
+            function whatsappNow(){
+                var message = "New Repair Booking"
+                + " Name John"
+                + "Phone 078555655"
+                + "Device: iphone 11";
+                var phoneNumber = "+23280957763"; // No + sing
+                var url = "https: // wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+                window.open(url, "_blank");
+                
+
+            }
+        </script>
+        <script>
+            function bookEvent() {
+                console.log("Event booking initiated");
+                window.location. href = "pay.html";
+            }
+        </script>
+    </body>
+</html>
